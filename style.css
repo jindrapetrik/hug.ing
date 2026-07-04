@@ -1,0 +1,158 @@
+:root {
+    --bg: white;
+    --text: black;
+    --card: #f5f5f5;
+    --button-bg: #f55;
+    --button-text: white;
+    --button-border: #e55;
+    --button-shadow: #ccc;
+    --copy-link-border: #444;
+    --copy-link-bg: #fee;
+    --input-bg: #fee;
+    --input-text: black;
+    --input-border: black;
+    --button-dis-bg: #666;
+    --button-dis-border: #444;
+    --counter-over: #f00;
+    --footer-bg: #333;
+    --footer-text: white;  
+    --link-text: #0db7b1;
+    --header-link-text: black;
+}
+
+[data-theme="dark"] {
+    --bg: #181818;
+    --text: #f1f1f1;
+    --card: #252525;
+    --button-bg: #b44;
+    --button-text: #fff;
+    --button-border: #b33;
+    --button-shadow: #111;
+    --copy-link-border: #888;
+    --copy-link-bg: #3a2222;
+    --input-bg: #2a2a2a;
+    --input-text: #ccc;
+    --input-border: #777;
+    --button-dis-bg: #3a3a3a;
+    --button-dis-border: #555;
+    --counter-over: #ff5c5c;
+    --footer-bg: #101010;
+    --footer-text: #f1f1f1;    
+    --link-text: #5ce6e1;
+    --header-link-text: #eee;
+}
+
+body {background: var(--bg); color: var(--text);}
+a {color: #0db7b1;}
+.button {
+    color:var(--button-text);
+    border: 1px solid var(--button-border);    
+    background-color: var(--button-bg);
+    filter: drop-shadow(5px 5px 4px var(--button-shadow));
+}
+.copy-link {border: 1px solid var(--copy-link-border); background: var(--copy-link-bg);}
+input, textarea {background: var(--input-bg); border: 1px solid var(--input-border); color: var(--input-text);}
+.button[disabled] {background: var(--button-dis-bg); border-color: var(--button-dis-border); }
+#counter.over {color: var(--counter-over);}
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+}
+
+body {
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-size: 12pt;
+}
+
+
+
+.main {text-align: center;}
+h1 {display: inline-block;}
+h2 {text-align: center;}
+header {position: relative;}
+header img {display: inline-block;}
+header a {text-decoration: none; color:var(--header-link-text);}
+header .subtitle {font-size: 150%;}
+footer {text-align: right;}  
+form.hug {text-align: center;}
+.hug-legend {font-size: 90%;}
+.button {
+    border-radius: 4px; 
+    padding: 5px 15px; 
+    text-decoration: none; 
+    margin-top:1em;
+    cursor: pointer;
+    font-size: 13pt;
+    display: inline-block;
+    line-height: 25px;
+}
+.button:active {
+    position: relative;
+    left:2px;
+    top:2px;
+}
+.send .button {font-size: 120%;}
+.main p:first-child {margin-bottom: 2.5em;}
+.panel {position: absolute; right: 20px; top: 50px; font-size: 80%;}
+.comment {font-size: 80%;}
+button.copy {padding:0; margin: 0; border: none; background: none; font-size: 120%; cursor: pointer;}
+.copy-link {font-family: monospace; padding-left:3px; padding-right: 3px; }
+form.accept {display: inline-block;}
+.hidden {display:none;}
+#choices {display: inline-block; margin-left: 20px;}
+.hug-accept {text-align: center;}
+.hug-accepted h1 {text-align: center;}
+.hug-accepted .content {text-align: center; display: flex;}
+.hug-accepted .content .text {flex:1; margin: 0; padding-top: 100px;}
+.hug-accepted .content video {flex-shrink: 0; width: 600px;}
+.message {margin-top: 20px; height: 250px; overflow: auto;}
+.own-hug {margin-top: 20px;}
+.own-hug a {font-size: 90%}
+.returned {font-weight: bold}
+a.mail {text-decoration: none; font-size: 130%;}
+#version {font-size: 90%;}
+#counter {text-align: right; font-size: 90%; cursor: default;}
+
+.button[disabled] {cursor: not-allowed;}
+.button[disabled]:active {left:0px; top:0px;} 
+
+#txaMessageWrapper {width:400px; margin: auto;}
+#txaMessage {width:100%;}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;     
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#theme-toggle {cursor: pointer;}
+
+.own-hug { margin-bottom: 20px;}
+
+@media (width <= 1024px) {
+    .hug-accepted .content video {width: 300px; height: 300px;}
+    .hug-accepted .content {display: block;}
+    .hug-accepted .content .text {padding-top:0px;}
+    .message {margin-top: 20px; height: inherit; overflow: inherit; margin-bottom: 20px;}
+}

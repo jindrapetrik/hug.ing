@@ -1,0 +1,10 @@
+*.txt text
+*.xml text
+*.md text
+*.php text
+
+*.svg text
+*.png binary
+*.jpg binary
+*.gif binary
+*.mp4 binary
