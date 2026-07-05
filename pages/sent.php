@@ -24,9 +24,7 @@ $s->execute([$senderKey]);
 
 
 $recipientKey = $row["recipientKey"];
-$viewCount = $row["viewCount"];
-$acceptCount = $row["acceptCount"];
-$returnedCount = $row["returnedCount"];
+
 $message = $row["message"];
 $name = $row["author"];
 
@@ -35,23 +33,8 @@ $senderLink = "$dl_server/$lang/sent?key=$senderKey";
 $undoLink = "$dl_server/$lang/xundo?key=$senderKey";
 
 
-$statuses = [];
-if ($acceptCount == 0 && $returnedCount == 0 && $viewCount == 0) {
-    $statuses[] = dl_lang_encs('Hug was created.', 'Objetí bylo vytvořeno.');
-}
-if ($viewCount > 0) {
-    $cnt = $viewCount > 1 ? ' (' . $viewCount . '×)' : '';
-    $statuses[] = dl_lang_encs('Hug arrived.', 'Objetí dorazilo.') . $cnt;    
-}
-if ($acceptCount > 0) {
-    $cnt = $acceptCount > 1 ? ' (' . $acceptCount . '×)' : '';
-    $statuses[] = dl_lang_encs('Hug was accepted.', 'Objetí bylo přijato.') . $cnt;    
-}
-if ($returnedCount > 0) {
-    $cnt = $returnedCount > 1 ? ' (' . $returnedCount . '×)' : '';
-    $statuses[] = dl_lang_encs('Hug was returned.', 'Objetí bylo opětováno.') . $cnt;        
-}
-     
+
+$status = dl_hug_status($row);     
 
 
 $title = dl_lang_encs("Link created", "Odkaz vytvořen");
@@ -70,9 +53,9 @@ if ($lang === "cs") {
     Jde o tuto aktuální stránku, na které se nacházíš. Tu si ulož, aby se ti neztratila. Nikomu jinému ji neposílej.<br>
 </p>
 <h3>Stav objetí</h3>
-<p>
+<p id="hug-status">
     <?php
-        echo implode("<br>" , $statuses);
+        echo $status;
     ?>
 </p>
 <?php if (!empty($name) || !empty($message)) {?>
@@ -164,6 +147,21 @@ senderButton.addEventListener("click", async () => {
         alert(langFailedCopy);
     }
 });
+
+const checkDelay = 20000;
+
+
+function checkStatus()
+{
+    fetch('ajax_status?key=<?php echo $senderKey;?>')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("hug-status").innerHTML = html;
+          window.setTimeout(checkStatus, checkDelay);
+        });
+}
+
+window.setTimeout(checkStatus, checkDelay);
 </script>
 <?php
 dl_page_end();

@@ -249,3 +249,28 @@ function dl_verify_recaptcha(?string $expectedAction = null): bool
 
     return true;
 }
+
+function dl_hug_status(array $row): string
+{
+    $viewCount = $row["viewCount"];
+    $acceptCount = $row["acceptCount"];
+    $returnedCount = $row["returnedCount"];
+
+    $statuses = [];
+    if ($acceptCount == 0 && $returnedCount == 0 && $viewCount == 0) {
+        $statuses[] = dl_lang_encs('Hug was created.', 'Objetí bylo vytvořeno.');
+    }
+    if ($viewCount > 0) {
+        $cnt = $viewCount > 1 ? ' (' . $viewCount . '×)' : '';
+        $statuses[] = dl_lang_encs('Hug arrived.', 'Objetí dorazilo.') . $cnt;    
+    }
+    if ($acceptCount > 0) {
+        $cnt = $acceptCount > 1 ? ' (' . $acceptCount . '×)' : '';
+        $statuses[] = dl_lang_encs('Hug was accepted.', 'Objetí bylo přijato.') . $cnt;    
+    }
+    if ($returnedCount > 0) {
+        $cnt = $returnedCount > 1 ? ' (' . $returnedCount . '×)' : '';
+        $statuses[] = dl_lang_encs('Hug was returned.', 'Objetí bylo opětováno.') . $cnt;        
+    }
+    return implode("<br />", $statuses);
+}
