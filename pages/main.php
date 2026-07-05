@@ -5,7 +5,7 @@ dl_page_begin('<meta name="description" content="Page for sending virtual hugs t
 <meta property="og:type" content="website">
 <meta property="og:title" content="hug.ing - send virtual hugs">
 <meta property="og:description" content="Page for sending virtual hugs to your friends.">
-<meta property="og:image" content="' . "$dl_server/logo.png". '">
+<meta property="og:image" content="' . "$dl_server/icon256.png". '">
 <meta property="og:url" content="' . "$dl_server". '">
 <meta property="og:site_name" content="hug.ing - send virtual hugs">');        
 ?>

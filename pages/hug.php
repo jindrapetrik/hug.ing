@@ -42,7 +42,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="' . dl_escape($name) . ' ' ."is sending you a virtual hug" . '">
 <meta property="og:description" content="' . dl_escape($name) . ' ' . "is sending you a virtual hug. Do you accept it? Will you hug back?" . '">
-<meta property="og:image" content="' . "$dl_server/logo.png". '">
+<meta property="og:image" content="' . "$dl_server/icon256.png". '">
 <meta property="og:url" content="' . "$dl_server/h/$recipientKey". '">
 <meta property="og:site_name" content="hug.ing - send virtual hugs">
 <meta name="robots" value="noindex,nofollow">');
