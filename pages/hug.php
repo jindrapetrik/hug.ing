@@ -24,7 +24,7 @@
     $name = $row["author"];
     
     $acceptTime = time();
-    $acceptToken = md5("$recipientKey|$acceptTime|$dl_token_salt");
+    $acceptToken = dl_create_token($recipientKey, $acceptTime);
     
     if (empty($name))
     {

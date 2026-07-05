@@ -1,14 +1,12 @@
 <?php
 
 $recipientKey = dl_get("key");
-$time = dl_get("time");
+$time = (int) dl_get("time");
 $token = dl_get("token");
 $returned = dl_get("returned") === "1";
 
 $tokenType = $returned ? "return" : "accept";
-$expectedToken = md5("$recipientKey|$time|$tokenType|$dl_token_salt");
-
-if ($expectedToken !== $token)
+if (!dl_token_valid($recipientKey, $time, $tokenType, $token))
 {
     http_response_code(400);
     dl_exit("Invalid token", "Neplatný token");
@@ -46,7 +44,7 @@ $video = '<video
 </video>';
 
 $returnTime = time();
-$returnToken = md5("$recipientKey|$returnTime|return|$dl_token_salt");
+$returnToken = dl_create_token($recipientKey, $returnTime, "return");
 
 if ($returned)
 {

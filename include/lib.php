@@ -161,3 +161,21 @@ function dl_escape(?string $txt): string
 {
     return htmlspecialchars((string) $txt, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
+
+function dl_create_token(string $recipientKey, int $time, ?string $tokenType = null): string
+{
+    global $dl_token_salt;
+    
+    $payload = $recipientKey . "|" . $time;
+    if ($tokenType !== null)
+    {
+        $payload .= "|" . $tokenType;
+    }
+    
+    return hash_hmac("sha256", $payload, $dl_token_salt);
+}
+
+function dl_token_valid(string $recipientKey, int $time, ?string $tokenType, string $token): bool
+{
+    return hash_equals(dl_create_token($recipientKey, $time, $tokenType), $token);
+}

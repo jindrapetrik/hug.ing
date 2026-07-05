@@ -4,9 +4,7 @@ $recipientKey = dl_post("key");
 $time = (int) dl_post("time");
 $token = dl_post("token");
 
-$expectedToken = md5("$recipientKey|$time|return|$dl_token_salt");
-
-if ($expectedToken !== $token)
+if (!dl_token_valid($recipientKey, $time, "return", $token))
 {
     http_response_code(400);
     dl_exit("Invalid token", "Neplatný token");
@@ -31,7 +29,7 @@ if ($s !== false)
     }
 }
 
-$returnedToken = md5("$recipientKey|$time|return|$dl_token_salt");
+$returnedToken = dl_create_token($recipientKey, $time, "return");
 
 http_response_code(303);
 header("Location: $dl_server/$lang/accepted?key=$recipientKey&time=$time&token=$returnedToken&returned=1");
