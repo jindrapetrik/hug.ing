@@ -31,8 +31,24 @@ if (mb_strlen($message) > 1000)
     dl_exit("Message is too long", "Zpráva je příliš dlouhá");
 }
 
-$recipientKey = generateRandomString(8);
-$senderKey = generateRandomString(12);
+do
+{
+    $recipientKey = generateRandomString(8);
+    $senderKey = generateRandomString(12);
+
+
+    $s = $db->prepare("SELECT 1 FROM hug WHERE recipientKey = ? OR senderKey = ?");
+    if ($s === false)
+    {
+        dl_exit("Cannot create hug", "Nelze vytvořit objetí");
+    }
+    if (!$s->execute([$recipientKey, $senderKey]))
+    {
+        dl_exit("Cannot create hug", "Nelze vytvořit objetí");
+    }
+    $exists = $s->fetch(PDO::FETCH_ASSOC) !== false;
+
+} while($exists);
 
 $s = $db->prepare("INSERT INTO hug(author, message, dateCreated, recipientKey, senderKey)"
         . " VALUES(?,?,NOW(),?,?)");
