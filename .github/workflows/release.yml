@@ -1,4 +1,4 @@
-name: Deploy
+name: Release
 
 on:
   push:
@@ -9,8 +9,8 @@ permissions:
   contents: write
   
 jobs:
-  upload:
-    name: Upload
+  release:
+    name: Release new version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
