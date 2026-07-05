@@ -6,5 +6,6 @@ dl_page_begin();
 ?>
 <h2><?php echo dl_lang_encs("Testing", "Testování"); ?></h2>
 <?php echo dl_lang_encs("Empty page", "Prázdná stránka"); ?>
+<?php echo dl_lang_encs("Deploy works", "Nasazení funguje"); ?>
 <?php
 dl_page_end();
