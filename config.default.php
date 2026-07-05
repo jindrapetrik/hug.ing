@@ -12,6 +12,16 @@ $dl_token_salt = "abcd";
 //Lifetime of the accepting token
 $dl_token_lifetime = 30 * 60; // 30 minutes
 
+
+//Google reCaptcha site key
+$dl_recaptcha_site_key = "";
+//Google reCaptcha secret
+$dl_recaptcha_secret = "";
+//Expected host name for reCaptcha
+$dl_recaptcha_expected_hostname = "www.mysite.com";
+//Minimum score for Google reCaptcha
+$dl_recaptcha_min_score = 0.5;
+
 //Database server
 $db_server = "";
 //Database user

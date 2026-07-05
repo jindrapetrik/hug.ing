@@ -179,3 +179,73 @@ function dl_token_valid(string $recipientKey, int $time, ?string $tokenType, str
 {
     return hash_equals(dl_create_token($recipientKey, $time, $tokenType), $token);
 }
+
+function dl_verify_recaptcha(?string $expectedAction = null): bool
+{
+    global $dl_recaptcha_secret_key;
+    global $dl_recaptcha_expected_hostname;
+    global $dl_recaptcha_min_score;
+
+    if (empty($dl_recaptcha_secret_key)) {
+        return !dl_production();
+    }
+
+    $token = dl_post("g-recaptcha-response");
+    if ($token === "") 
+    {
+        return false;
+    }
+
+    $payload = http_build_query([
+        "secret" => $dl_recaptcha_secret_key,
+        "response" => $token,
+        "remoteip" => $_SERVER["REMOTE_ADDR"] ?? "",
+    ]);
+
+    $context = stream_context_create([
+        "http" => [
+            "method" => "POST",
+            "header" => "Content-Type: application/x-www-form-urlencoded\r\n",
+            "content" => $payload,
+            "timeout" => 5,
+        ],
+    ]);
+
+    $response = @file_get_contents(
+        "https://www.google.com/recaptcha/api/siteverify",
+        false,
+        $context
+    );
+
+    if ($response === false)
+    {
+        error_log("reCAPTCHA verification request failed");
+        return false;
+    }
+
+    $result = json_decode($response, true);
+    if (!is_array($result) || empty($result["success"]))
+    {
+        error_log("reCAPTCHA failed: " . $response);
+        return false;
+    }
+
+    if (!empty($dl_recaptcha_expected_hostname)
+            && ($result["hostname"] ?? "") !== $dl_recaptcha_expected_hostname) 
+    {
+        return false;
+    }
+
+    // reCAPTCHA v3 only
+    if ($expectedAction !== null && ($result["action"] ?? "") !== $expectedAction) 
+    {
+        return false;
+    }
+
+    if (isset($result["score"]) && $result["score"] < $dl_recaptcha_min_score) 
+    {
+        return false;
+    }
+
+    return true;
+}

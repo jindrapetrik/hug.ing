@@ -4,9 +4,11 @@
     $sendToken = dl_create_token("", $sendTime, "send");
 
     $title = dl_lang_encs("Send hug", "Poslat objetí");
-    dl_page_begin();    
+    dl_page_begin('
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+            ');    
 ?>
-<form action="xsend" method="POST" class="hug">
+<form action="xsend" method="POST" class="hug" id="form-send">
     <input type="hidden" name="time" value="<?php echo $sendTime; ?>">
     <input type="hidden" name="token" value="<?php echo $sendToken; ?>">
     <fieldset>
@@ -21,7 +23,11 @@
             <div class="comment"><?php echo dl_lang_encs("It is displayed before accepting the hug.", "Zobrazí se před přijetím obejmutí."); ?></div>
         </div>
         <div>
-            <input id="btnCreateLink" type="submit" class="button" name="send" value="<?php echo dl_lang_encs("Create link*", "Vytvoř odkaz*"); ?>"/>
+            <input id="btnCreateLink" type="submit" class="button g-recaptcha" 
+                    data-sitekey="<?php echo $dl_recaptcha_site_key; ?>" 
+                    data-callback='onSubmit' 
+                    data-action='send_hug'
+                    name="send" value="<?php echo dl_lang_encs("Create link*", "Vytvoř odkaz*"); ?>"/>
         </div>
         
     </fieldset>
@@ -45,6 +51,11 @@ txaMessage.addEventListener("input", () => {
         btnCreateLink.disabled = false;
     }
 });
+
+function onSubmit(token) {
+     document.getElementById("form-send").submit();
+}
+   
 </script>
 <div class="hug-legend">
     <?php if ($lang === "cs") {?>

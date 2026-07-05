@@ -30,6 +30,15 @@ if ($currentTime > $time + $dl_token_lifetime)
     dl_exit("Expired token", "Expirovaný token");
 }
 
+if (!dl_verify_recaptcha("send_hug")) 
+{
+    http_response_code(400);
+    dl_exit(
+        "Verification failed. Please try again.",
+        "Ověření se nezdařilo. Zkuste to prosím znovu."
+    );
+}
+
 $db = dl_db_connect();
 
 $author = dl_post("name");
