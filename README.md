@@ -7,10 +7,11 @@ Add a short message, share the link, and give someone a small moment of warmth a
 ## Source code & License
 Source code of the whole website is available under [license AGPLv3](LICENSE.md).
 
-## How to run
+## How to run on your own server
 1. Setup Apache server with PHP 8.1+
 2. Setup MariaDB/MySQL database.
-3. Copy `config.default.php` to `config.php`
+3. Create database structure using [hug.table.sql](sources/hug.table.sql) script.
+4. Copy `config.default.php` to `config.php`
    - update appropriate configuration (db connection, server URL)
 
 ## Author
