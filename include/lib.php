@@ -121,6 +121,12 @@ function dl_admin()
     return $_SERVER["REMOTE_ADDR"] === $dl_admin_ip;
 }
 
+function dl_production()
+{
+    global $dl_production;
+    return $dl_production;
+}
+
 function dl_db_connect(): \PDO
 {
     global $dl_pdo,$db_server,$db_user,$db_password,$db_database;

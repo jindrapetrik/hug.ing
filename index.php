@@ -1,8 +1,17 @@
 <?php
 
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+error_reporting(E_ALL);
+
 include __DIR__ . "/config.php";
 include __DIR__ . "/ver.php";
 include __DIR__ . "/include/lib.php";
+
+if (dl_admin() || !dl_production())
+{
+    ini_set('display_errors', 1);
+}
 
 $lang = dl_get("lang", "auto");
 $page = dl_get("page", "main");
