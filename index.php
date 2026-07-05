@@ -15,6 +15,20 @@ if (dl_admin() || !dl_production())
 
 header("X-Frame-Options: DENY");
 header("Referrer-Policy: same-origin");
+header("Content-Security-Policy: " . 
+        "default-src 'self'; " .
+        "base-uri 'self'; " .
+        "object-src 'none'; " .
+        "frame-ancestors 'none'; " .
+        "img-src 'self'; " . 
+        "media-src 'self'; " . 
+        "font-src 'self' https://fonts.gstatic.com; " . 
+        "style-src 'self' https://fonts.googleapis.com; " . 
+        "script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com; " . 
+        "frame-src https://www.google.com; " .
+        "form-action 'self'; " .        
+        "connect-src 'self' https://www.google.com; " .
+        "upgrade-insecure-requests");
 
 $lang = dl_get("lang", "auto");
 $page = dl_get("page", "main");
