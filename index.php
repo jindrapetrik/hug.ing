@@ -1,6 +1,7 @@
 <?php
 
 include __DIR__ . "/config.php";
+include __DIR__ . "/ver.php";
 include __DIR__ . "/include/lib.php";
 
 $lang = dl_get("lang", "auto");

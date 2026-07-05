@@ -6,6 +6,6 @@ RewriteRule  ^/?$  /index.php
 RewriteRule  ^h/([a-z0-9]+)$  /index.php?lang=auto&page=hug&key=$1&shortLink=1 [L,QSA]
 RewriteRule  ^(cs|en|auto)/([a-z0-9_]*)$  /index.php?lang=$1&page=$2 [L,QSA]
 RewriteRule  ^(pages|include|sources|\.git|nbproject|.github)(/.*)?$ /index.php?lang=auto&page=404 [L]
-RewriteRule  ^(config\.php|config\.default\.php)$ /index.php?lang=auto&page=404 [L]
+RewriteRule  ^(config\.php|config\.default\.php|ver\.php)$ /index.php?lang=auto&page=404 [L]
 
 
