@@ -182,11 +182,11 @@ function dl_token_valid(string $recipientKey, int $time, ?string $tokenType, str
 
 function dl_verify_recaptcha(?string $expectedAction = null): bool
 {
-    global $dl_recaptcha_secret_key;
+    global $dl_recaptcha_secret;
     global $dl_recaptcha_expected_hostname;
     global $dl_recaptcha_min_score;
 
-    if (empty($dl_recaptcha_secret_key)) {
+    if (empty($dl_recaptcha_secret)) {
         return !dl_production();
     }
 
@@ -197,7 +197,7 @@ function dl_verify_recaptcha(?string $expectedAction = null): bool
     }
 
     $payload = http_build_query([
-        "secret" => $dl_recaptcha_secret_key,
+        "secret" => $dl_recaptcha_secret,
         "response" => $token,
         "remoteip" => $_SERVER["REMOTE_ADDR"] ?? "",
     ]);
