@@ -1,8 +1,6 @@
 <?php
 
-    dl_require_admin();
-
-    dl_page_begin('<meta name="description" content="Page for sending virtual hugs to your friends.">
+dl_page_begin('<meta name="description" content="Page for sending virtual hugs to your friends.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="hug.ing - send virtual hugs">
