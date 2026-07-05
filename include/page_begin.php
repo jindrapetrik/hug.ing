@@ -16,7 +16,13 @@ if (!empty($get))
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo dl_lang_encs("Virtual hug.ing", "Virtuální objetí");
+  <title><?php 
+  
+  if (!dl_production())
+  {
+      echo "DEV - ";
+  }
+  echo dl_lang_encs("Virtual hug.ing", "Virtuální objetí");
   
   if (!empty($title))
   {
@@ -51,7 +57,13 @@ if (!empty($get))
   <header>
       <div class="container">
       <a href="./">          
-          <h1><img src="/logo.png" alt="hug.ing logo" width="244" height="100" title="<?php echo dl_lang_encs("Virtual hug.ing", "Virtuální objetí"); ?>"></h1>
+          <h1><img src="/logo.png" valign="middle" alt="hug.ing logo" width="244" height="100" title="<?php echo dl_lang_encs("Virtual hug.ing", "Virtuální objetí"); ?>">
+          <?php
+          if (!dl_production())
+          {
+              echo '<span id="dev-info">DEV</span>';
+          }
+          ?></h1>             
       </a>
           <span class="panel">    
             <?php if ($lang === "cs") {?>
