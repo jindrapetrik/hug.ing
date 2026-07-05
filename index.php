@@ -13,6 +13,9 @@ if (dl_admin() || !dl_production())
     ini_set('display_errors', 1);
 }
 
+header("X-Frame-Options: DENY");
+header("Referrer-Policy: same-origin");
+
 $lang = dl_get("lang", "auto");
 $page = dl_get("page", "main");
 
