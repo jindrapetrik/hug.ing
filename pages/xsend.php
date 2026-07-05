@@ -14,6 +14,22 @@ function generateRandomString(int $length = 8): string
 }
 
 
+$time = (int) dl_post("time");
+$token = dl_post("token");
+
+if (!dl_token_valid("", $time, "send", $token))
+{
+    http_response_code(400);
+    dl_exit("Invalid token", "Neplatný token");
+}
+
+$currentTime = time();
+
+if ($currentTime > $time + $dl_token_lifetime)
+{
+    dl_exit("Expired token", "Expirovaný token");
+}
+
 $db = dl_db_connect();
 
 $author = dl_post("name");

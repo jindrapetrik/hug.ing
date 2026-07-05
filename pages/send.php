@@ -1,8 +1,14 @@
 <?php
+
+    $sendTime = time();
+    $sendToken = dl_create_token("", $sendTime, "send");
+
     $title = dl_lang_encs("Send hug", "Poslat objetí");
     dl_page_begin();    
 ?>
 <form action="xsend" method="POST" class="hug">
+    <input type="hidden" name="time" value="<?php echo $sendTime; ?>">
+    <input type="hidden" name="token" value="<?php echo $sendToken; ?>">
     <fieldset>
         <legend><?php echo dl_lang_encs("Send a Virtual hug", "Poslat virtuální objetí"); ?></legend>
         <div class="field"><label for="txaMessage"><?php echo dl_lang_encs("Message:", "Vzkaz:"); ?> (<?php echo dl_lang_encs("optional", "volitelné");?>)</label><br>
