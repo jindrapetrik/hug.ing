@@ -78,9 +78,9 @@ if ($lang === "cs") {
 <?php if (!empty($name) || !empty($message)) {?>
 <h3>Detaily objetí</h3>
 <p>
-    <strong>Odesílatel:</strong> <?php echo htmlspecialchars($name); ?><br>
+    <strong>Odesílatel:</strong> <?php echo dl_escape($name); ?><br>
     <strong>Vzkaz:</strong><br>
-    <?php echo nl2br(htmlspecialchars($message)); ?>
+    <?php echo nl2br(dl_escape($message)); ?>
 </p>
 <?php } ?>
 <h3>Odvolání objetí</h3>
@@ -116,9 +116,9 @@ if ($lang === "cs") {
 <h3>Hug Details</h3>
 
 <p>
-    <strong>Sender:</strong> <?php echo htmlspecialchars($name); ?><br>
+    <strong>Sender:</strong> <?php echo dl_escape($name); ?><br>
     <strong>Message:</strong><br>
-    <?php echo htmlspecialchars($message); ?>
+    <?php echo dl_escape($message); ?>
 </p>
 <?php } ?>
 

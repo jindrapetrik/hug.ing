@@ -26,7 +26,7 @@ if (!empty($get))
   
   if (!empty($title))
   {
-      echo ' - ' . htmlspecialchars($title);
+      echo ' - ' . dl_escape($title);
   }
   
   ?></title>

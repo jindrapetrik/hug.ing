@@ -37,11 +37,11 @@
         $s->execute([$recipientKey]);
     }
     
-    dl_page_begin('<meta name="description" content="' . $name . ' ' . "is sending you a virtual hug. Do you accept it? Will you hug back?" .'">
+    dl_page_begin('<meta name="description" content="' . dl_escape($name) . ' ' . "is sending you a virtual hug. Do you accept it? Will you hug back?" .'">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="' . $name . ' ' ."is sending you a virtual hug" . '">
-<meta property="og:description" content="' . $name . ' ' . "is sending you a virtual hug. Do you accept it? Will you hug back?" . '">
+<meta property="og:title" content="' . dl_escape($name) . ' ' ."is sending you a virtual hug" . '">
+<meta property="og:description" content="' . dl_escape($name) . ' ' . "is sending you a virtual hug. Do you accept it? Will you hug back?" . '">
 <meta property="og:image" content="' . "$dl_server/logo.png". '">
 <meta property="og:url" content="' . "$dl_server/h/$recipientKey". '">
 <meta property="og:site_name" content="hug.ing - send virtual hugs">
@@ -53,7 +53,7 @@
     <div>
     <span>
     <?php
-    echo htmlspecialchars($name);
+    echo dl_escape($name);
     echo " ";
     echo dl_lang_encs("is sending you a virtual hug.<br> Do you accept it?", "vám posílá virtuální objetí. <br>Přijmete ho?");
     ?>

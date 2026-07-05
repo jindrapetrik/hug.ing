@@ -76,16 +76,16 @@ if ($lang === "cs")
     if (!empty($message))
     {
         echo '<div class="name-sending">';
-        echo htmlspecialchars($name) .' vám posílá objetí se vzkazem:';
+        echo dl_escape($name) .' vám posílá objetí se vzkazem:';
         echo '</div>';
         echo '<div class="message">';
-        echo nl2br(htmlspecialchars($message));
+        echo nl2br(dl_escape($message));
         echo '</div>';
     }
     else 
     {
         echo '<div class="name-sending">';
-        echo htmlspecialchars($name) .' vám posílá objetí.';
+        echo dl_escape($name) .' vám posílá objetí.';
         echo '</div>';
     }            
 } 
@@ -105,16 +105,16 @@ else
     if (!empty($message))
     {
         echo '<div class="name-sending">';
-        echo htmlspecialchars($name) .' is sending you a hug with a message:';
+        echo dl_escape($name) .' is sending you a hug with a message:';
         echo '</div>';
         echo '<div class="message">';
-        echo nl2br(htmlspecialchars($message));
+        echo nl2br(dl_escape($message));
         echo '</div>';
     }
     else 
     {
         echo '<div class="name-sending">';
-        echo htmlspecialchars($name) .' is sending you a hug.';
+        echo dl_escape($name) .' is sending you a hug.';
         echo '</div>';
     }
 }

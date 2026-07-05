@@ -156,3 +156,8 @@ function dl_db_connect(): \PDO
     }
     return $dl_pdo;
 }
+
+function dl_escape(?string $txt): string
+{
+    return htmlspecialchars((string) $txt, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+}
