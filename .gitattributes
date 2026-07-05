@@ -2,6 +2,7 @@
 *.xml text
 *.md text
 *.php text
+*.sql text
 
 *.svg text
 *.png binary
