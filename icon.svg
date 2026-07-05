@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title1">hug.ing icon</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.7285229"
+     inkscape:cx="150.41744"
+     inkscape:cy="154.46714"
+     inkscape:window-width="1600"
+     inkscape:window-height="930"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="icon"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g5"
+       transform="matrix(1.1858164,0,0,1.1858164,-89.49204,-16.61649)"
+       style="display:inline"
+       inkscape:label="icon-smooth">
+      <path
+         style="display:inline;fill:#f55980;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round"
+         d="m 103.67632,66.038054 c 1.73522,-0.03285 10.15468,-1.19697 17.45047,-11.975814 6.09933,-9.011195 4.21574,-15.449455 -0.813,-17.10519 -4.62406,-1.52249 -12.87114,4.950034 -14.75555,4.872754 -2.23016,-0.09146 -12.930868,-12.555067 -20.273346,-4.875868 -4.798704,5.01877 0.225338,15.268935 0.50644,15.78496 4.966915,9.117886 16.724666,13.321125 17.884986,13.299158 z"
+         id="path4"
+         sodipodi:nodetypes="sssssss" />
+      <path
+         style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round"
+         d="m 104.05206,66.103526 c 0,0 0.26651,-10.938671 0.0411,-10.948628 -11.574429,-1.52447 -17.99285,-9.201503 -12.972942,-11.174278 1.866116,-0.733366 6.822383,3.524125 9.829352,4.344373 6.26759,1.709689 11.68949,2.35837 15.94447,0.166572 1.80049,-0.927456 2.32162,-1.765714 2.1275,-3.068661 -0.34404,-2.30928 -2.61978,-2.41488 -3.43526,-2.357613 -8.59129,0.603322 -9.34982,-0.885762 -10.02804,-1.235487 -0.78191,-0.403193 -12.846706,-12.499546 -20.246806,-4.87586 -4.899548,5.047582 0.228598,15.267172 0.50644,15.78496 6.720523,12.524391 19.394756,13.364972 18.234226,13.364622 z"
+         id="path4-2"
+         sodipodi:nodetypes="scssssssssss" />
+      <circle
+         style="fill:#f55980;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round"
+         id="path5"
+         cx="112.45318"
+         cy="29.893726"
+         r="6.843791" />
+      <circle
+         style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round"
+         id="path5-7"
+         cx="96.87146"
+         cy="27.391829"
+         r="6.843791" />
+    </g>
+  </g>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>hug.ing icon</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jindra Petřík</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

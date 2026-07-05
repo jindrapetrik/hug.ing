@@ -34,7 +34,7 @@ if (!empty($get))
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css?<?php echo filemtime("style.css");?>">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico?<?php echo filemtime("favicon.ico");?>" type="image/x-icon">
   <meta name="author" content="Jindra Petřík">
   <meta name="theme-color" value="#ff5555">
   <?php echo $meta; 
@@ -57,7 +57,7 @@ if (!empty($get))
   <header>
       <div class="container">
       <a href="./">          
-          <h1><img src="/logo.png" valign="middle" alt="hug.ing logo" width="244" height="100" title="<?php echo dl_lang_encs("Virtual hug.ing", "Virtuální objetí"); ?>">
+          <h1><img src="/logo.svg" valign="middle" alt="hug.ing logo" width="244" height="100" title="<?php echo dl_lang_encs("Virtual hug.ing", "Virtuální objetí"); ?>">
           <?php
           if (!dl_production())
           {
