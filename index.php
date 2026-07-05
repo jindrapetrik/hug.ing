@@ -43,14 +43,16 @@ if ($lang === "auto")
 header('Content-Language: ' . $lang);
 
 
+if (!dl_admin() && !$dl_production)
+{
+    dl_exit("This is the DEVELOPMENT ENVIRONMENT, it is not available for regular users.", "Toto je VÝVOJOVÉ PROSTŘEDÍ, není dostupné pro obyčejné uživatele.");
+}
 
 if (!preg_match("/[a-z0-9_]+/", $page))
 {
     http_response_code(404);
     dl_exit("404 page not found", "404 stránka nenalezena");
 }
-
-
 
 if (file_exists(__DIR__ . "/pages/$page.php"))
 {
