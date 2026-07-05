@@ -1,7 +1,7 @@
 <?php
 
 $recipientKey = dl_post("key");
-$time = dl_post("time");
+$time = (int) dl_post("time");
 $token = dl_post("token");
 
 $expectedToken = md5("$recipientKey|$time|return|$dl_token_salt");

@@ -32,7 +32,7 @@ $name = $row["author"];
 
 $recipientLink = "$dl_server/h/$recipientKey";
 $senderLink = "$dl_server/$lang/sent?key=$senderKey";
-$undoLink = "$dl_server/$lang/undo?key=$senderKey";
+$undoLink = "$dl_server/$lang/xundo?key=$senderKey";
 
 
 $statuses = [];
